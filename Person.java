@@ -2,7 +2,7 @@
  * Sample code to demonstrate a simple class 
  * Class contains 'state' and 'behaviour'
  * Uses 'data hiding' and follows Javabeans convention
- *  
+ * Declares constructors
  *	 
  * @author Alan Cowap 
  * @version 1.0  
