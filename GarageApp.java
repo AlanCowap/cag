@@ -15,8 +15,10 @@
 
 public class GarageApp{
 
-	private static final int MAX_NUM_VEHICLES = 100;
-	private static final int MAX_NUM_CARS = 90;
+	private static final int MAX_NUM_VEHICLES = 90;
+	private static final int MAX_NUM_CARS = 70;
+	private static final int MAX_NUM_MOTORBIKES = 10;
+	private static final int MAX_NUM_VANS = 10;
 	private Vehicle[] veh = new Vehicle[MAX_NUM_VEHICLES];
 
 	public static void main(String[] args){
@@ -31,8 +33,14 @@ public class GarageApp{
 			veh[i] = new Car("VIN:"+ (i), "152-D-" + (i));
 		}
 		//Add motorbikes
-		for(int i=MAX_NUM_CARS; i < MAX_NUM_VEHICLES; ++i){
-			veh[i] = new MotorBike("VIN:"+ (i), "152-D-" + (i));
+		int lastMotorbike = MAX_NUM_CARS + MAX_NUM_MOTORBIKES;
+		for(int i=MAX_NUM_CARS; i < lastMotorbike; ++i){
+			veh[i] = new MotorBike("VIN:"+ (i), "152-D-" + (i), true);
+		}
+		//Add vans
+		//int lastMotorbike = MAX_NUM_CARS + MAX_NUM_MOTORBIKES;
+		for(int i=lastMotorbike; i < MAX_NUM_VEHICLES; ++i){
+			veh[i] = new Van("VIN:"+ (i), "152-D-" + (i), false, 25.5D);
 		}
 
 		//Display details
@@ -74,10 +82,6 @@ class Car extends Vehicle{
 class MotorBike extends Vehicle{
 	boolean hasSidecar;
 
-	public MotorBike(String vin, String regNumber){
-		this(vin, regNumber, false);
-	}
-
 	public MotorBike(String vin, String regNumber, boolean hasSidecar){
 		super(vin, regNumber);
 		this.hasSidecar = hasSidecar;
@@ -85,6 +89,22 @@ class MotorBike extends Vehicle{
 
 	public String toString(){
 		return super.toString() + " " + this.hasSidecar;
+	}
+
+}
+
+class Van extends Vehicle{
+	boolean hasTowHitch;
+	double capacity;
+
+	public Van(String vin, String regNumber, boolean hasTowHitch, double capacity){
+		super(vin, regNumber);
+		this.hasTowHitch = hasTowHitch;
+		this.capacity = capacity;
+	}
+
+	public String toString(){
+		return super.toString() + " " + this.hasTowHitch +" "+ this.capacity;
 	}
 
 }
