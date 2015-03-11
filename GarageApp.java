@@ -38,7 +38,7 @@ public class GarageApp{
 			veh[i] = new MotorBike("VIN:"+ (i), "152-D-" + (i), true);
 		}
 		//Add vans
-		//int lastMotorbike = MAX_NUM_CARS + MAX_NUM_MOTORBIKES;
+		//int lastVan = MAX_NUM_CARS + MAX_NUM_MOTORBIKES + MAX_NUM_VANS;
 		for(int i=lastMotorbike; i < MAX_NUM_VEHICLES; ++i){
 			veh[i] = new Van("VIN:"+ (i), "152-D-" + (i), false, 25.5D);
 		}
