@@ -1,5 +1,5 @@
 /** 
- * Sample code to demonstrate inheritance, overriding, consurctors, super, this
+ * Sample code to demonstrate inheritance, overriding, constructors, super, this
  * Invoke methods on an object
  * Call an objects constructor
  *	 
