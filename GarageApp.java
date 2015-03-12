@@ -56,9 +56,8 @@ class Vehicle{
 	private String vin;
 	private String regNumber;
 
-	public Vehicle(){
-		this.vin = "Unknown";
-		this.regNumber = "Unknown";
+	public Vehicle(){		
+		this("Unknown", "Unknown");
 	}
 
 	public Vehicle(String vin, String regNumber){
