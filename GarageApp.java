@@ -87,7 +87,8 @@ class MotorBike extends Vehicle{
 	}
 
 	public String toString(){
-		return super.toString() + " " + this.hasSidecar;
+		String str = this.hasSidecar ? "Has sidecar" : "Has no sidecar";
+		return super.toString() + " " + str;
 	}
 
 }
@@ -103,7 +104,8 @@ class Van extends Vehicle{
 	}
 
 	public String toString(){
-		return super.toString() + " " + this.hasTowHitch +" "+ this.capacity;
+		String str = this.hasTowHitch ? "Has Towhitch" : "Has no Towhitch";
+		return super.toString() + " " + str +" "+ this.capacity;
 	}
 
 }
