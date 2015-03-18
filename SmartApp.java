@@ -40,20 +40,53 @@ class SmartApp{
 			}//switch
 		}while(!choice.equals("4"));
 		
+		//Create & Populate Array
 		Device[] devices = new Device[100];
+		for(int i=0; i < 100; ++i){
+			devices[i] = new Phone("Samsumg", "S6", 6, "1880000000");
+		}
+
+		//Output Device details				
+		for(int i=0; i < 100; ++i){
+			System.out.println(devices[i] +" ");
+		}
 	}
 }
 
 class Device{
-	String manufacturer = "Samsung";
-	String model = "S6";
-	int screenSize = 6;
+	private String manufacturer = "Unknown";
+	private String model = "Unknown";
+	private int screenSize = -1;
+	
+	Device(){}
+	
+	Device(String manufacturer, String model, int screenSize){
+		this.manufacturer = manufacturer;
+		this.model = model;
+		this.screenSize = screenSize;
+	}
+
+	public String toString(){
+		return (manufacturer +" "+ model +" "+ screenSize);
+	}
+
 }
 
 class Phone extends Device{
 	String phoneNumber;
+
+	Phone(String manufacturer, String model, int screenSize, String phoneNumber){
+		super(manufacturer, model, screenSize);
+		this.phoneNumber = phoneNumber;
+	}
+	public String toString(){
+		return super.toString() + " "+ phoneNumber;
+	}
 }
 
 class Tablet extends Device{
+	Tablet(String manufacturer, String model, int screenSize){
+		super(manufacturer, model, screenSize);
+	}
 }
 
