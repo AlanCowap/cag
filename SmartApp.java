@@ -40,16 +40,20 @@ class SmartApp{
 			}//switch
 		}while(!choice.equals("4"));
 		
-
-		Phone[] phones = new Phone[50];
-		Tablet[] tablets = new Tablet[50];
+		Device[] devices = new Device[100];
 	}
 }
 
-
-class Phone{
+class Device{
+	String manufacturer = "Samsung";
+	String model = "S6";
+	int screenSize = 6;
 }
 
-class Tablet{
+class Phone extends Device{
+	String phoneNumber;
+}
+
+class Tablet extends Device{
 }
 
