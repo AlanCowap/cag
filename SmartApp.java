@@ -16,7 +16,13 @@
 import java.io.Console;
 
 class SmartApp{
+	Device[] devices = new Device[100];
+
 	public static void main(String[] args){
+		new SmartApp().runProgram();
+	}
+
+	private void runProgram(){
 		String choice = "Not Applicable";
 		do{
 			// Display menu
@@ -40,17 +46,19 @@ class SmartApp{
 			}//switch
 		}while(!choice.equals("4"));
 		
-		//Create & Populate Array
-		Device[] devices = new Device[100];
+		//Create & Populate Array		
 		for(int i=0; i < 100; ++i){
 			devices[i] = new Phone("Samsumg", "S6", 6, "1880000000");
+			devices[++i] = new Tablet("Samsumg", "S6", 6);
 		}
 
 		//Output Device details				
 		for(int i=0; i < 100; ++i){
 			System.out.println(devices[i] +" ");
 		}
+	
 	}
+
 }
 
 class Device{
