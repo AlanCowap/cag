@@ -25,8 +25,13 @@ class SmartApp{
 	private void runProgram(){
 		//Create & Populate Array		
 		for(int i=0; i < 100; ++i){
-			devices[i] = new Phone("Samsumg", "S6", 6, "1880000000");
-			devices[++i] = new Tablet("Samsumg", "Tab4", 10);
+			if(i < 40){
+				devices[i] = new Phone("Samsung", "S6", 6, "1880000000");
+			}else if (i < 80){
+				devices[i] = new Tablet("Samsung", "Tab4", 10);
+			}else{
+				devices[i] = new Watch("Samsung", "Gear", 2);
+			}
 		}
 
 		String choice = "Not Applicable";
@@ -60,12 +65,12 @@ class SmartApp{
 		String manufacturer = con.readLine("Enter Manufacturer: ");
 		String model = con.readLine("Enter Model: ");
 		String screenSize = con.readLine("Enter Screen Size (inches): ");
-		String index = con.readLine("Enter index 0..99 : ");
+		String index = con.readLine("Enter index 1..100 : ");
 		int idx = Integer.parseInt(index);
 		int intScreenSize = Integer.parseInt(screenSize);
 
 		//add Device to array
-		devices[idx] = new Tablet(manufacturer, model, intScreenSize);		
+		devices[idx-1] = new Tablet(manufacturer, model, intScreenSize);		
 				
 
 	}
@@ -81,7 +86,7 @@ class SmartApp{
 
 	private void outputDeviceDetails(){
 		for(int i=0; i < 100; ++i){
-			System.out.println(devices[i] +" ");
+			System.out.println(i+1 +" "+ devices[i] +" ");
 		}
 	}
 
@@ -131,3 +136,8 @@ class Tablet extends Device{
 	}
 }
 
+class Watch extends Device{
+	Watch(String manufacturer, String model, int screenSize){
+		super(manufacturer, model, screenSize);
+	}
+}
