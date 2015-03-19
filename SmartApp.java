@@ -44,20 +44,42 @@ class SmartApp{
 	
 			//Evaluate user choice
 			switch(choice){
-				case "1" :	System.out.println(choice); break;
-				case "2" :	this.outputDetails(); break;
-				case "3" :	System.out.println(choice); break;
+				case "1" :	this.insertDevice(); break;
+				case "2" :	this.outputDeviceDetails(); break;
+				case "3" :	this.calculateTotScreenSize(); break;
 				case "4" :	System.out.println("Goodbye!"); break;
 				default	 :	System.out.println("Invalid choice"); break;
 			}//switch
 		}while(!choice.equals("4"));
-		
-
-	
 	}
 
-	private void outputDetails(){
-		//Output Device details				
+	private void insertDevice(){
+		//get index
+		//get details
+		Console con = System.console();
+		String manufacturer = con.readLine("Enter Manufacturer: ");
+		String model = con.readLine("Enter Model: ");
+		String screenSize = con.readLine("Enter Screen Size (inches): ");
+		String index = con.readLine("Enter index 0..99 : ");
+		int idx = Integer.parseInt(index);
+		int intScreenSize = Integer.parseInt(screenSize);
+
+		//add Device to array
+		devices[idx] = new Tablet(manufacturer, model, intScreenSize);		
+				
+
+	}
+
+	private void calculateTotScreenSize(){
+		int total=0;
+		for(Device d : devices){
+			total += d.getScreenSize();
+		}
+
+		System.out.println("Total screen size = " + total);
+	}
+
+	private void outputDeviceDetails(){
 		for(int i=0; i < 100; ++i){
 			System.out.println(devices[i] +" ");
 		}
@@ -76,6 +98,10 @@ class Device{
 		this.manufacturer = manufacturer;
 		this.model = model;
 		this.screenSize = screenSize;
+	}
+	
+	public int getScreenSize(){
+		return this.screenSize;
 	}
 
 	//@Override
