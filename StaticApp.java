@@ -40,7 +40,7 @@ class StaticApp{
 class Person{
 	private String name;
 	private int age;
-	private int count = 0;
+	private static int count = 0;
 
 	Person(String name, int age){
 		this.name = name;
